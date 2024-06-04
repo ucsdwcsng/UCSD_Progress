@@ -46,7 +46,7 @@ A tracker used to both track my understanding of the softwares I am implementing
 - Conducted similar tests for traffic generated using iperf.
 
 <div style="display: flex; justify-content: center; margin: 0; padding: 0;">
-  <img src="screenshots/iperf_traffic.png" alt="iperf_traffic" style="height: auto; width: 80%; margin: 0; padding: 0;">
+  <img src="screenshots/iperf_traffic_srsran.png" alt="iperf_traffic" style="height: auto; width: 80%; margin: 0; padding: 0;">
 </div>
 
 <br>
