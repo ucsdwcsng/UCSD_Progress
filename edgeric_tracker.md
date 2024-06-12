@@ -53,7 +53,7 @@ A tracker used to both track my understanding of the softwares I am implementing
 
 1. **Terminal 1**
 
-    Establish the connection between the UE and the eNB using the GNU Radio GUI wrapper and ZeroMQ virtual radios. Here the GNU Radio Companion acts like a broker to help ensure communication between the UE and the enB. My annotated version of this file is available [here](https://github.com/pulak999/UCSD_Progress/blob/main/annotated_code/top_block_2ue_23.04MHz.py). 
+    Establish the connection between the UE and the eNB using the GNU Radio GUI wrapper and ZeroMQ virtual radios. Here the GNU Radio Companion acts like a broker to help ensure communication between the UE and the enB. My annotated version of this file is available [here](google.com). 
 
     ```bash
     cd EdgeRIC/EdgeRIC_main
@@ -64,7 +64,7 @@ A tracker used to both track my understanding of the softwares I am implementing
 
 2. **Terminal 2**
 
-    The EPC, the eNB and both the UEs are setup consecutively, according to the conf files specified above. My annotated version of this file is available [here](https://github.com/pulak999/UCSD_Progress/blob/main/annotated_code/run_srsran_2ue.sh). All of these run on the same terminal in the background.
+    The EPC, the eNB and both the UEs are setup consecutively, according to the conf files specified above. My annotated version of this file is available [here](google.com). All of these run on the same terminal in the background.
 
     ```bash
     cd EdgeRIC/EdgeRIC_main
@@ -90,7 +90,7 @@ A tracker used to both track my understanding of the softwares I am implementing
  
 4. **Running μApps**
 
-    You can choose various μApps to run from the drop down. I have selected the Max Weight DL Scheduler as well attempted to train the RL models. My outputs can be found [here](https://github.com/pulak999/UCSD_Progress/blob/main/edgeric_tracker.md#traffic-simulations).
+    You can choose various μApps to run from the drop down. I have selected the Max Weight DL Scheduler as well attempted to train the RL models. My outputs can be found [here](google.com).
 
     ```bash
     cd ~/pytorch_env

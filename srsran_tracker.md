@@ -8,12 +8,14 @@ A tracker used to both track my understanding of the softwares I am implementing
 - While performing an end-to-end LTE simulation using srsRAN, it is important to ensure that both the EPC and the UE are working on different isolated network environments, but on the same machine. By assigning the UE and EPC different namespaces, we ensure that they have separate network stacks, including their own IP addresses, routing tables, and interfaces.
 - This isolation is crucial to avoid conflicts between the network and port configurations of the UE and EPC, which might otherwise interfere with each other if they were in the same namespace.
 - Now, the communication between these two simulations is analogous to network layer communication, achieved using TUN interfaces. A TUN (network TUNnel) interface simulates a network layer device and operates at layer 3, carrying TCP/IP packets in this context.
-```
-                                            +-----+       +-----+       +----+
-                                            | EPC | <-->  | eNB | <-->  | UE |
-                                            +-----+       +-----+       +----+
 
-```
+<div style="text-align: center;">
+  <div class="mermaid">
+    graph LR;
+        EPC <--> eNB <--> UE;
+  </div>
+</div>
+
 - Usually, both the eNB and the UE use physical radios for communication. In this simulation, we use the ZeroMQ library to simulate virtual radios.
 
 ## Progress  
@@ -23,9 +25,10 @@ A tracker used to both track my understanding of the softwares I am implementing
 - Built onto a UTM Linux VM running Ubuntu 20.04. The machine itself has 4 GB RAM allocated, along with ~ 50 GB of storage.
 - Package built without errors and passed all 1407 tests successfully.
 
-| ![Build Done](./screenshots/build_done.png) | ![Tests Passed](./screenshots/tests_passed.png) |
-|:-------------------------------------------:|:----------------------------------------------:|
-| Finished Build                              | Tests Passed                                   |
+<div style="display: flex; justify-content: center; gap: 5px; margin: 0; padding: 0;">
+  <img src="./screenshots/build_done.png" alt="finished_build" style="height: auto; width: 50%; margin: 0; padding: 0;">
+  <img src="./screenshots/tests_passed.png" alt="tests_passed" style="height: auto; width: 50%; margin: 0; padding: 0;">
+</div>
 
 <br>
 
@@ -33,9 +36,10 @@ A tracker used to both track my understanding of the softwares I am implementing
 - Successfully executed a simulation that established a connection between a LTE EPC and a UE using ZeroMQ Virtual Radios.
 - Successfully sent both UL and DL traffic using the ping command.
 
-| ![UL Traffic Ping](screenshots/ul_traffic_ping.png) | ![DL Traffic Ping](screenshots/dl_traffic_ping.png) |
-|:--------------------------------------------------:|:--------------------------------------------------:|
-|                   UL Traffic Ping                   |                   DL Traffic Ping                   |
+<div style="display: flex; justify-content: center; gap: 5px; margin: 0; padding: 0;">
+  <img src="screenshots/ul_traffic_ping.png" alt="finished_build" style="height: auto; width: 50%; margin: 0; padding: 0;">
+  <img src="screenshots/dl_traffic_ping.png" alt="tests_passed" style="height: auto; width: 50%; margin: 0; padding: 0;">
+</div>
 
 <br>
 
@@ -49,13 +53,9 @@ A tracker used to both track my understanding of the softwares I am implementing
 
 - Connected the UE to the Internet and verified the connection by transmitting packets from a well known public Internet server (Google's Public DNS Server)
 
-<table style="width: 100%; border: none; margin: 0; padding: 0;">
-  <tr style="border: none; margin: 0; padding: 0;">
-    <td style="border: none; text-align: center; margin: 0; padding: 0;">
-      <img src="screenshots/ul_ping_internet.png" alt="iperf_traffic" style="width: 80%; height: auto; margin: 0; padding: 0;">
-    </td>
-  </tr>
-</table>
+<div style="display: flex; justify-content: center; margin: 0; padding: 0;">
+  <img src="screenshots/ul_ping_internet.png" alt="iperf_traffic" style="height: auto; width: 80%; margin: 0; padding: 0;">
+</div>
 
 <br>
 
@@ -95,9 +95,9 @@ Similarly, the transmitting IP address and port is `*:2001`, and the receiving I
     *Terminal 4*
 
     ```bash
-    # downlink traffic
+    #downlink traffic
     ping 172.16.0.2
-    # uplink traffic
+    #uplink traffic
     sudo ip netns exec ue1 ping 172.16.0.1
     ```
 
@@ -125,16 +125,16 @@ To connect the UE to the Internet, run the masquerading script located in the `s
 ### Commands for Connection Verification
 
 ```bash
-# checks network interfaces within the ue1 namespace
+# Checks network interfaces within the ue1 namespace
 sudo ip netns exec ue1 ip link
 
-# checks IP addresses in the ue1 namespace
+# Check IP addresses in the ue1 namespace
 sudo ip netns exec ue1 ip addr
 
-# modifies routing table in the ue1 namespace
+# Modify routing table in the ue1 namespace
 sudo ip netns exec ue1 ip route
 sudo ip netns exec ue1 ip route add default via 172.16.0.1 dev tun_srsue
 
-# tests internet connectivity in the ue1 namespace
+# Test internet connectivity in the ue1 namespace
 sudo ip netns exec ue1 ping -c 4 8.8.8.8
 ```
