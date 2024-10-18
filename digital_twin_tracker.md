@@ -131,7 +131,7 @@ As I was new to developing using ZeroMQ, I approached this step-by-step:
 
 **New Approach [IN-PROGRESS] :**
 - **Use GNU's approach to store data**
-    - Effectively, a PUB-SUB pattern in REQ-REP.
+    - Effectively GNU has implemented a PUB-SUB pattern in REQ-REP.
     - For more information, refer to Slides 32-36.
 
 ### TL;DR
