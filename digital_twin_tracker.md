@@ -94,7 +94,7 @@ Metrics Considered:
 - MAPE (Mean Absolute Percentage Error) - Not of use actually. No good way to understand power differences in this case (atleast in the linear domain)
 
 For the results, please refer to [my wireless slides](https://docs.google.com/presentation/d/1ZVRdaL4ylD1i6fVkltgcU_Vdj77Zs-Lg3jlwlW2bDhw/edit?usp=sharing) from slide 18 onwards. 
-**[STILL UPDATING THIS]**
+**[STILL UPLOADING PLOTS]**
 
 ### Next Steps
 
@@ -107,4 +107,46 @@ For the results, please refer to [my wireless slides](https://docs.google.com/pr
 Working on figuring an appropriate tap resolution for a given channel. Performing simulations/experiments in Sionna for now. Will move on to mobile scenarios after figuring out a succinct static channel representation.
 
 ## Systems Efforts
+
+The best way to understand my progress in creating a ZMQ Broker that can perform real-time convolutions would be going through [my slides](https://docs.google.com/presentation/d/15Sk_M7Azggf7XXFcFJ6bhrHNiq8MYJD5_OPluzeKJ3s/edit?usp=sharing) from slide 9 onwards. A summary is below:
+
+### GNU
+
+If we are receiving data in the form of a stream, it might make more sense to perform sliding window convolutions on the IQ input.
+- Is the data received as a stream though? --> It is not, it is receieved as blocks at the REQ sockets.
+- A custom sliding window block in GNU did not give good results 
+- More information on [Slides 15 and 16](https://docs.google.com/presentation/d/15Sk_M7Azggf7XXFcFJ6bhrHNiq8MYJD5_OPluzeKJ3s/edit?usp=sharing).
+
+For more information on my initial experiments on figuring the best type of convolution to perform
+
+### C++
+
+As I was new to developing using ZeroMQ, I approached this step-by-step:
+- First created programs that:
+    - read from sockets (P1)
+    - wrote to sockets (P2)
+- Tried to put them together. Issues I ran into:
+    - Asynchronous transmission necessitates a multi-threaded approach.
+    - A data structure must store data and support multiple-thread access *at the same time.*
+
+**New Approach [IN-PROGRESS] :**
+- **Use GNU's approach to store data**
+    - Effectively, a PUB-SUB pattern in REQ-REP.
+    - For more information, refer to Slides 32-36.
+
+### TL;DR
+- Used the pre-existing FFT blocks to perform convolutions
+    - Slow and non-scalable, but atleast the system started up (UE attached)
+    - *Only setup that worked*
+- Implemented a custom Sliding Convolution block as a C++ OOT Module
+    - UE did not attach
+    - Timeouts occured (**Please refer to slide 15**)
+- Attempted (many times) to create a C++ flowgraph which does what GNU Radio's Flowgraph does
+    - Classic queues cannot be used to store data in real time.
+- Next Steps:
+    - Implement what is implemented in the GNU Flowgraph's C++ flowgraph.
+   
+
+
+
 
