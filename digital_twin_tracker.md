@@ -2,22 +2,23 @@
 
 A tracker used to both track my understanding of the topics I am implementing, as well as the results/progress of my implementations. I store all my results/code in this [Github Repository](https://github.com/ucsdwcsng/TinyTwin).
 
-*Note:* This document contains a majority of my final findings. For a understanding of my thought process, please refer to my slides:
+*Note:* This document contains a majority of my final findings. For a understanding of my thought process, please refer to my rough slides:
 - [Wireless Slides](https://docs.google.com/presentation/d/1ZVRdaL4ylD1i6fVkltgcU_Vdj77Zs-Lg3jlwlW2bDhw/edit?usp=sharing)
 - [Systems Slides](https://docs.google.com/presentation/d/15Sk_M7Azggf7XXFcFJ6bhrHNiq8MYJD5_OPluzeKJ3s/edit?usp=sharing)
 
 ## Overview
 
-In this project, we attempt to create an easy-to-use, full-scale 5G Digital Twin. We attempt to build our solution on top of the following solutions:
-- Open5GS (Core Network)
-- srsRAN 5G/Project (gNB)
-- srsUE (UEs)
+In this project, we attempt to create a cellular Digital Twin. Ushasi and I have categorized my efforts into two main areas: (1) *System Contributions* — creating a framework by building on top the existing open-source RAN stacks, and (2) *Wireless Contributions* — reducing a real-world channel into a format compatible with our Digital Twin framework.
 
-The project can be broadly categorized into two primary components:
-- [Wireless Efforts](https://github.com/ucsdwcsng/UCSD_Progress/blob/main/digital_twin_tracker.md#wireless-efforts): Involves identifying the most concise and least compute-intensive representation of channel taps.
-- [Systems Efforts](https://github.com/ucsdwcsng/UCSD_Progress/blob/main/digital_twin_tracker.md#systems-efforts): Developing a ZMQ broker to replace GNU Radio Flowgraph usually used to connect the srsUE to the srsRAN Project's gNB.
+**Summary:**
+1. **System Contributions:** 
+    - We have an existing OAI Implementation with the option to plug channels of our choice.
+    - Summary Slides : [[Slide 1](), [Slide 2]()]
+2. **Wireless Contributions:**
+    - We have finalized a complete pipeline to represent a real-world, time-varying channel in a compute-intensive form that can be integrated into our existing OAI framework.
+    - To summarise, I have created a short summary presentation you can refer to : [[https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=chsHNL&nav=eyJzSWQiOjMxMSwiY0lkIjoyNDU0MDA3OTQ3fQ]() onwards]
 
-## Wireless Efforts
+## Time-Wise Progress
 
 For a good estimate of a PHY channel, we have to ensure the following components are modeled/taken into account:
 - Channel changes rapidly over **time** : update the channel taps periodically
@@ -134,18 +135,53 @@ As I was new to developing using ZeroMQ, I approached this step-by-step:
     - Effectively GNU has implemented a PUB-SUB pattern in REQ-REP.
     - For more information, refer to Slides 32-36.
 
-### TL;DR
-- Used the pre-existing FFT blocks to perform convolutions
-    - Slow and non-scalable, but atleast the system started up (UE attached)
-    - *Only setup that worked*
-- Implemented a custom Sliding Convolution block as a C++ OOT Module
-    - UE did not attach
-    - Timeouts occured (**Please refer to slide 15**)
-- Attempted (many times) to create a C++ flowgraph which does what GNU Radio's Flowgraph does
-    - Classic queues cannot be used to store data in real time.
-- Next Steps:
-    - Implement what is implemented in the GNU Flowgraph's C++ flowgraph.
-   
+
+## August 2nd week to August 3rd week
+- *Aim:*
+- *Experiments Performed:*
+- *Output:*
+
+## August 2nd week to August 3rd week
+- *Aim:*
+- *Experiments Performed:*
+- *Output:*
+
+## August 2nd week to August 3rd week
+- *Aim:*
+- *Experiments Performed:*
+- *Output:*
+
+## August 2nd week to August 3rd week
+- *Aim:*
+- *Experiments Performed:*
+- *Output:*
+
+## November 1st Week - November 2nd Week
+- *Aim:*
+- *Experiments Performed:*
+- *Output:*
+
+## November 2nd Week - November 3rd Week
+*TRAVELLING*
+
+## November 3rd Week - Present
+- *Aim:*
+    - Benchmark existing OAI channel implementation: **At how many taps does a 10 UE system break?**
+    - Perform Doppler Super-Resolution: Increase the FFT Size
+    - Plot more metrics for temporal channel variation.
+- *Results:*
+    - In-Progress
+
+
+### Next Steps:
+- Discuss method to simulate Doppler apart from Sionna. 
+    - Issue with Sionna's Doppler: [Slide 1](), [Slide 2]()
+- Verify Doppler super-resolution results with Ish.
+- Finalise tap reduction pipeline -- wait on feedback
+- Discuss tap reduction scenarios -- what datasets/Sionna scenarios to use
+- **Finish benchmarking WCSNG-24**
+
+
 
 
 
