@@ -12,3 +12,5 @@ Refer to the appropriate time-frame for the appropriate Markdown:
 
 - **August 2nd week - Present:** Building a cellular Digital Twin.
     - [Digital Twin Tracker](https://github.com/ucsdwcsng/UCSD_Progress/blob/main/digital_twin_tracker.md)
+    - [Thesis](https://github.com/ucsdwcsng/UCSD_Progress/blob/main/thesis.pdf)
+    - [Miscellaneous](https://github.com/ucsdwcsng/UCSD_Progress/blob/main/misc.md)
