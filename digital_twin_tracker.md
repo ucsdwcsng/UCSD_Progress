@@ -136,48 +136,59 @@ As I was new to developing using ZeroMQ, I approached this step-by-step:
     - For more information, refer to Slides 32-36.
 
 
-## August 2nd week to August 3rd week
-- *Aim:*
-- *Experiments Performed:*
-- *Output:*
+## August 12th - August 20th
+- Setup a [OFDM system](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=VI2Zs9&nav=eyJzSWQiOjI2NSwiY0lkIjo2MDM2NjI4MDZ9) in Sionna.
+- Figured out how to port [our own scenes](https://github.com/ucsdwcsng/TinyTwin/blob/pulak/channel/ofdm_scenes/blr-scene-ofdm.ipynb) into Sionna using OSM -- used this to get CIRs and Channel Taps.
 
-## August 2nd week to August 3rd week
-- *Aim:*
-- *Experiments Performed:*
-- *Output:*
+## August 21st - August 30th
+- Started understanding the srsRAN codebase and observing how the [UE](https://github.com/ucsdwcsng/TinyTwin/blob/6c1673c12afb1e3c8e22cec523ac069eaf97a4b1/srsRAN_4G/lib/src/phy/rf/rf_zmq_imp_tx.c#L149) and [gNB's](https://github.com/ucsdwcsng/TinyTwin/blob/6c1673c12afb1e3c8e22cec523ac069eaf97a4b1/srsRAN_Project/lib/radio/zmq/radio_zmq_tx_channel.cpp#L184) ports are configured.
+- Created many more such scenes in Sionna, using the pre-existing Sionna scenes: [Munich](https://github.com/ucsdwcsng/TinyTwin/blob/pulak/channel/ofdm_scenes/munich-v1-scene.ipynb) and [Etoile](https://github.com/ucsdwcsng/TinyTwin/blob/pulak/channel/ofdm_scenes/etoile-scene.ipynb).
+- Started plotting [CIRs](https://github.com/ucsdwcsng/TinyTwin/tree/pulak/channel/plots/select_number_of_taps/cirs%2Bchannel_taps/tests) and [OFDM symbols](https://github.com/ucsdwcsng/TinyTwin/tree/pulak/channel/plots/select_number_of_taps/symbols/without_eq).
+    - Aim was to get "good" CIRs -- Non-single tap CIRs.
+    - Tried plotting [magnitude](https://github.com/ucsdwcsng/TinyTwin/tree/pulak/channel/plots/select_number_of_taps/los-etoile/power) and [phase change](https://github.com/ucsdwcsng/TinyTwin/blob/pulak/channel/plots/select_number_of_taps/los-etoile/phase/256qam.png) of OFDM output symbols for different channels.
+        - **POOR METRIC**
 
-## August 2nd week to August 3rd week
-- *Aim:*
-- *Experiments Performed:*
-- *Output:*
 
-## August 2nd week to August 3rd week
-- *Aim:*
-- *Experiments Performed:*
-- *Output:*
+## September 2nd - September 9th
+- *Came to UCSD from India, most of the week went in setting up.*
 
-## November 1st Week - November 2nd Week
-- *Aim:*
-- *Experiments Performed:*
-- *Output:*
+## September 10th - September 24th
+- Performed many small experiments top get the correct ZMQ ports working. More details are available from [Slide xx here]()).
+- Figured out correct ZMQ port configirations -- was able to send and receive data without GRC.
+- **Creating a pure C++ alternative to GRC is non-trivial.** Some components I will have to design:
+    - Thread Scheduler
+    - Multi-Thread Accessible Storage (RING) Buffer
+    - Asynchronous Messaging System
+- *Possible, but will take me time to do. Will attempt again after getting the OAI system up and running completely.*
 
-## November 2nd Week - November 3rd Week
-*TRAVELLING*
+## September 26th - November 5th
+- Came up with a framework to perform Tap Reduction.
+- Well documneted in slides from [here onwards](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=JZa8hb&nav=eyJzSWQiOjMwNSwiY0lkIjozMzIyOTQzNjUxfQ).
 
-## November 3rd Week - Present
-- *Aim:*
-    - Benchmark existing OAI channel implementation: **At how many taps does a 10 UE system break?**
-    - Perform Doppler Super-Resolution: Increase the FFT Size
-    - Plot more metrics for temporal channel variation.
-- *Results:*
-    - In-Progress
+## November 6th - November 14th
+- Plotted Delay-Doppler 
 
+## November 15th - November 23rd
+- *TRAVELLING*
+
+## November 24th - December 1st
+- Performed SVD to get path-wise delay and Doppler estimates.
+- Performed Doppler Super-Resolution: Increase the FFT Size
+- Plotted [more metrics](https://github.com/ucsdwcsng/TinyTwin/tree/pulak/channel/plots/when_to_update_taps/spatial/etoile-mobile) for temporal channel variation.
+    - Plotted Mean Channel Power, Mean Squared Error, Earth Mover Distance and EVM.
+    - EVM is still the best way to understand symbol variations.
+
+
+## December 9th - Present
+- Came to Phase-Shift as a good metric to model average phase shift across symbols.
+
+### Short Term Goals - End Of Month
+- Perform large-scale experiments for [tap reduction](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=SwZlmx&nav=eyJzSWQiOjMyNiwiY0lkIjozMTAwMDkzNzA1fQ) and [channel updation](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=K3PFja&nav=eyJzSWQiOjI5NCwiY0lkIjozNTI5Mzg5Mzk5fQ).
+- Complete making the OAI framework.
 
 ### Next Steps:
-- Discuss method to simulate Doppler apart from Sionna. 
-    - Issue with Sionna's Doppler: [Slide 1](), [Slide 2]()
-- Verify Doppler super-resolution results with Ish.
-- Finalise tap reduction pipeline -- wait on feedback
+- Discuss method to simulate temporal scenarios apart from Sionna. 
+- Verify results with Ish.
 - Discuss tap reduction scenarios -- what datasets/Sionna scenarios to use
 - **Finish benchmarking WCSNG-24**
 
