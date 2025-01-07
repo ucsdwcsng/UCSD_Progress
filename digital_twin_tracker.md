@@ -83,8 +83,9 @@ A summary of my week-by-week progress.
 ### December 9th - December 21st
 - Came to Phase-Shift as a good metric to model average phase shift across symbols.
 - Finalising Channel Updation Pipeline with Ish and Ushasi.
-    - Mapped extremely fine-grained metrics to fully understand what types of channel changes are significant. 
+    - Mapped extremely [fine-grained metrics](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=m7Gta7&nav=eyJzSWQiOjM2MSwiY0lkIjoxODgyODgxMTE4fQ) to fully understand what types of channel changes are significant. 
     - *Which metrics to use finally?*
+        - We must use a mixture of the same. Will decide on the final metrics soon.
 - Wrote my thesis and submitted the same to BITS. 
 
 ### December 23rd - Present
