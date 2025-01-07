@@ -80,18 +80,19 @@ A summary of my week-by-week progress.
     - Plotted Mean Channel Power, Mean Squared Error, Earth Mover Distance and EVM.
     - EVM is still the best way to understand symbol variations.
 
-### December 9th - Present
+### December 9th - December 21st
 - Came to Phase-Shift as a good metric to model average phase shift across symbols.
 - Finalising Channel Updation Pipeline with Ish and Ushasi.
+    - Mapped extremely fine-grained metrics to fully understand what types of channel changes are significant. 
     - *Which metrics to use finally?*
+- Wrote my thesis and submitted the same to BITS. 
 
-## Short Term Goals - End Of Month
-- Perform large-scale experiments for [tap reduction](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=SwZlmx&nav=eyJzSWQiOjMyNiwiY0lkIjozMTAwMDkzNzA1fQ) and [channel updation](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=K3PFja&nav=eyJzSWQiOjI5NCwiY0lkIjozNTI5Mzg5Mzk5fQ).
-- **Complete the OAI framework.**
+### December 23rd - Present
+- Recognised an issue in bounding the TTIs -- the timing overhead introduced by RF Simulator's convolution causes the TTI times of the system to balloon. 
+- Problem and solution better explained [here](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=y25n77&nav=eyJzSWQiOjM1MiwiY0lkIjo5MTkwNzUzMTB9).
 
 ## Next Steps:
-- Discuss method to simulate temporal scenarios apart from Sionna. 
-- Verify results with Ish.
 - Discuss tap reduction scenarios -- what datasets/Sionna scenarios to use
-- **Finish benchmarking WCSNG-24**
+- Perform large-scale experiments for [tap reduction](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=SwZlmx&nav=eyJzSWQiOjMyNiwiY0lkIjozMTAwMDkzNzA1fQ) and [channel updation](https://ucsdcloud-my.sharepoint.com/:p:/r/personal/dbharadia_ucsd_edu/Documents/WCSNG/People/Ushasi/Tiny-twin/tiny-twin.pptx?d=w397c362b2c664ac2b1091b1ca01ee699&csf=1&web=1&e=K3PFja&nav=eyJzSWQiOjI5NCwiY0lkIjozNTI5Mzg5Mzk5fQ).
+- **Ensure TTIs are ms bound**
 
